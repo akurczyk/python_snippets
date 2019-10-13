@@ -56,6 +56,23 @@ class Account:
             yield element
 
     #
+    # __getattr__ vs __getattribute__
+    # __getattribute__ is called before looking up for attributes.
+    # __getattr__ is called when there is no such an attribute.
+    #
+
+    def __getattr__(self, item):
+        self.__dict__[item] = 0
+        return 0
+
+    def __getattribute__(self, item):
+        if item.startswith('priv_'):
+            raise AttributeError
+
+        return object.__getattribute__(self, item)
+        # NO SELF! Must call base class or it will raise an infinite recursion.
+
+    #
     # > < >= <= == !=
     #
 
