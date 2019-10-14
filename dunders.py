@@ -18,6 +18,11 @@ class Account:
     def __str__(self):
         return f'{self.name} account - balance: {self.balance}'
 
+    # if SELF
+    def __bool__(self):
+        return self.balance != 0
+
+    # For storing in dictionaries
     def __hash__(self):
         # WARNING: MUTABLE OBJECT - SHOULD NOT BE HASHABLE!
         return hash(self.name) ^ hash(self.balance)
@@ -25,10 +30,6 @@ class Account:
     # abs(SELF)
     def __abs__(self):
         return abs(self.balance)
-
-    # if SELF
-    def __bool__(self):
-        return self.balance != 0
 
     # len(SELF)
     def __len__(self):
@@ -54,6 +55,10 @@ class Account:
     def __iter__(self):
         for element in self._transactions:
             yield element
+
+    # if SMTH in SELF...
+    def __contains__(self, item):
+        return item in self._transactions
 
     #
     # __getattr__ vs __getattribute__
