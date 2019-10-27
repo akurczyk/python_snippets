@@ -1,4 +1,4 @@
-from struct_ import Struct
+from struct import Struct
 
 # https://docs.python.org/2/library/struct.html
 

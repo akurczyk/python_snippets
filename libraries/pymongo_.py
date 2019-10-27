@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 client = MongoClient('localhost', 27017)
-first_database = client.first_db
+first_database = client.first_database
 first_collection = first_database.first_collection
 
 document_1 = {
