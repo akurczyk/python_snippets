@@ -1,9 +1,9 @@
-import threading
 import queue
-import time
 import random
 import signal
 import sys
+import threading
+import time
 
 
 class ThreadingPlayground:

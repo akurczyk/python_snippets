@@ -1,5 +1,5 @@
-import redis
 import time
+import redis
 
 r = redis.Redis()
 ps = r.pubsub()
